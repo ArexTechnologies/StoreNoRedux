@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+import AddToCart from './components/AddToCart';
+import { useContext } from 'react';
+import {Store} from './store/Store'
 function App() {
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const {
+    cart: { itemsInCart },
+  } = state;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    //create store fodlder with store.js
+    //createContext , create reducer fuction
+    <div>
+      <h1>Hi i am navbar {itemsInCart}</h1>
+      <AddToCart />
     </div>
   );
 }
